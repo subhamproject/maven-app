@@ -1,0 +1,6 @@
+version: '2'
+services:
+
+  maven-app-image:
+     build: .
+     image: rcx-java-maven-new
