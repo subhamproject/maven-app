@@ -1,2 +1,2 @@
 #!/bin/bash
-mvn clean test
+mvn test
