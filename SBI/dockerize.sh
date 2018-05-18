@@ -19,8 +19,5 @@ case $BRANCH_NAME in
     exit 1
 esac
 
-services=$(cat $(dirname $0)/service-manifest.txt)
-for s in $services
-do
-docker build -t ${s}:${tag} -f $(dirname $0)/docker/$dockerfile .
-done
+service=$(cat $(dirname $0)/service-manifest.txt)
+docker build -t ${service}:${tag} -f $(dirname $0)/docker/$dockerfile .
