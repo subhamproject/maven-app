@@ -7,8 +7,8 @@ case $BRANCH_NAME in
     dockerfile=Dockerfile.develop
     ;;
   develop)
-    #tag=Dev-${BUILD_NUMBER}
-    tag="subhammandal"
+    tag=Dev-${BUILD_NUMBER}
+    #tag="subhammandal"
     dockerfile=Dockerfile.develop
     ;;
   master)
@@ -20,6 +20,6 @@ case $BRANCH_NAME in
     exit 1
 esac
 
-services=$(cat $(dirname $0)/service-manifest.txt)
+service=$(cat $(dirname $0)/service-manifest.txt)
 
-docker build -t "${tag}" -f $(dirname $0)/docker/$dockerfile .
+docker build -t "${tag}":"${service}" -f $(dirname $0)/docker/$dockerfile .
