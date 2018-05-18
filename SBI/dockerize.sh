@@ -3,7 +3,7 @@ export PATH="$PATH:/usr/local/bin"
 #docker-compose build maven-app-image-docker
 case $BRANCH_NAME in
   maven)
-    tag=QA-${BUILD_NUMBER}
+    tag=Qa-${BUILD_NUMBER}
     dockerfile=Dockerfile.develop
     ;;
   develop)
