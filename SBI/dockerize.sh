@@ -20,4 +20,4 @@ case $BRANCH_NAME in
 esac
 
 service=$(cat $(dirname $0)/service-manifest.txt)
-docker build -t ${service}:${tag} -f $(dirname $0)/docker/$dockerfile .
+docker build -t ${service} -f $(dirname $0)/docker/$dockerfile .
