@@ -2,16 +2,15 @@
 export PATH="$PATH:/usr/local/bin"
 #docker-compose build maven-app-image-docker
 case $BRANCH_NAME in
-  maven)
+  master)
     tag=QA-${BUILD_NUMBER}
     dockerfile=Dockerfile.develop
     ;;
-  develop)
+  maven)
     tag=Dev-${BUILD_NUMBER}
-    #tag="subhammandal"
     dockerfile=Dockerfile.develop
     ;;
-  master)
+  develop)
     tag=Prod-${BUILD_NUMBER}
     dockerfile=Dockerfile.develop
     ;;
@@ -20,6 +19,8 @@ case $BRANCH_NAME in
     exit 1
 esac
 
-service=$(cat $(dirname $0)/service-manifest.txt)
-
-docker build -t "${tag}":"${service}" -f $(dirname $0)/docker/$dockerfile .
+services=$(cat $(dirname $0)/service-manifest.txt)
+for s in $services
+do
+docker build -t ${s}:$tag -f $(dirname $0)/docker/$dockerfile .
+done
