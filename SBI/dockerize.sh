@@ -6,11 +6,11 @@ case $BRANCH_NAME in
     tag=QA-${BUILD_NUMBER}
     dockerfile=Dockerfile.develop
     ;;
-  develop)
+  master)
     tag=Dev-${BUILD_NUMBER}
     dockerfile=Dockerfile.develop
     ;;
-  master)
+  develop)
     tag=Prod-${BUILD_NUMBER}
     dockerfile=Dockerfile.develop
     ;;
