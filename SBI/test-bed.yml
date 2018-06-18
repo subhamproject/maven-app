@@ -2,7 +2,7 @@ version: '2'
 services:
      
   maven-app-build:
-     user: "997:994"
+     user: "${USERID}:${GROUPID}"
      image: rcx-java-build:latest
      volumes:
       - /etc/passwd:/etc/passwd:ro
