@@ -3,7 +3,7 @@ services:
      
   maven-app-build:
      user: "${USERID}:${GROUPID}"
-     image: maven:latest
+     image: maven
      volumes:
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
