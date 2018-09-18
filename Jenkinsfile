@@ -6,7 +6,7 @@ pipeline {
   }
   agent any
   parameters{ 
-    text(name: 'mvn_arg', defaultValue: false, description: 'This is to input maven argument')    
+    text(name: 'mvn_arg', defaultValue: 'Please enter maven test command', description: 'This is to input maven argument')    
 }
   stages {
     stage('Build') {
