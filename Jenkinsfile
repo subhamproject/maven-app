@@ -5,9 +5,8 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '10'))
   }
   agent any
-  parameters{ text(name: 'mvn_arg', 
-                 defaultValue: 'Default lines for the parameter', 
-                 description: 'This is to input maven argument')    
+  parameters{ 
+    text(name: 'mvn_arg', defaultValue: true, description: 'This is to input maven argument')    
 }
   stages {
     stage('Build') {
