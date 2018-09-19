@@ -10,12 +10,12 @@ pipeline {
     string(name: 'BRANCH', defaultValue: 'Please provide branch name', description: 'Branch to load the Dockerfile from.')
 }
   stages {
-    when {
+        stage('Build') {
+          when {
         allOf {
             expression { params.BRANCH != null }
              }
            }
-    stage('Build') {
       steps {
         script {
           sh '''
