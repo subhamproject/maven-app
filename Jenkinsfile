@@ -6,9 +6,15 @@ pipeline {
   }
   agent any
   parameters{ 
-    text(name: 'mvn_arg', defaultValue: 'Please enter maven test command', description: 'This is to input maven argument')    
+    text(name: 'MVN_ARG', defaultValue: 'Please enter maven test command', description: 'This is to input maven argument')
+    string(name: 'BRANCH', defaultValue: 'Please provide branch name', description: 'Branch to load the Dockerfile from.')
 }
   stages {
+    when {
+        allOf {
+            expression { params.BRANCH != null }
+             }
+           }
     stage('Build') {
       steps {
         script {
